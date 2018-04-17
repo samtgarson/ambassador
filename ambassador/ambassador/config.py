@@ -1064,7 +1064,10 @@ class Config (object):
 
                     for reference_key in route['_referenced_by']:
                         source_keys.append(reference_key)
-
+                        
+            self.logger.debug("!SOURCE_KEY: %s" % source_key)
+            self.logger.debug("!ROUTES: %s" % self.envoy_config['routes'])
+            
             if not source_keys:
                 return {
                     "error": "No group matches %s" % group_id
